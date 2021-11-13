@@ -1,0 +1,48 @@
+plugins {
+	id 'org.springframework.boot' version '2.5.2'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+	id 'maven-publish'
+}
+
+group = 'com.vadosity'
+version = '1.0'
+
+sourceCompatibility = '16'
+
+repositories {
+	mavenCentral()
+	mavenLocal()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'com.vadosity:resume-tailor-core:1.0'
+	testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
+
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'com.vadosity'
+            artifactId = 'resume-tailor-service'
+            version = '1.0'
+            from components.java
+        }
+    }
+}
+
+// gradle publishToMavenLocal
+
+jar {
+    manifest{
+        attributes ("Fw-Version" : "1.0.0")
+    }
+    baseName 'resume-tailor-service'
+    version '1.0' 
+}
+
+test {
+	useJUnitPlatform()
+}
