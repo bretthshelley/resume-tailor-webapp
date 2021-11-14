@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: resume-tailor-service
+
+management:
+  endpoints:
+    enabled-by-default: true
+  endpoint:
+    info:
+      enabled: true

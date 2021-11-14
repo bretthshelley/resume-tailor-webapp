@@ -7,18 +7,24 @@ plugins {
 
 group = 'com.vadosity'
 version = '1.0'
-
 sourceCompatibility = '16'
 
 repositories {
 	mavenCentral()
 	mavenLocal()
+	maven { url 'https://repo.spring.io/milestone' }
 }
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'com.vadosity:resume-tailor-core:1.0'
 	testImplementation('org.springframework.boot:spring-boot-starter-test')
+	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+}
+
+ext {
+	set('springCloudVersion', "2020.0.3")
 }
 
 
@@ -33,11 +39,15 @@ publishing {
     }
 }
 
-// gradle publishToMavenLocal
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+	}
+}
 
 jar {
     manifest{
-        attributes ("Fw-Version" : "1.0.0")
+        attributes ("Fw-Version" : "1.0")
     }
     baseName 'resume-tailor-service'
     version '1.0' 
