@@ -1,6 +1,9 @@
+server:
+  port: 8050
+
 spring:
   application:
-    name: resume-tailor-service
+    name: resume-tailor-webapp
 
 management:
   endpoints:
