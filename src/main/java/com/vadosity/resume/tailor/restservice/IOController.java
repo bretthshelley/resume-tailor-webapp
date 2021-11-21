@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -36,10 +37,16 @@ public class IOController {
 	@Autowired 
 	private EurekaClient eurekaClient;
 	
+	@Value("${serviceHostname}")
+	private String serviceHostname;
+	
+	@Value("${serviceProtocol}")
+	private String serviceProtocol;
+	
 	@RequestMapping(path = "/download", method = RequestMethod.GET)
     public ResponseEntity<Resource> download(@RequestParam("filename") String filename) throws IOException {
        
-		String baseUrl="http://resume-tailor-service/resume/download?filename="+filename;
+		String baseUrl=serviceProtocol+"://"+serviceHostname+"/resume/download?filename="+filename;
 		Resource resource = restTemplate.getForObject(baseUrl, Resource.class);
 		HttpHeaders header = new HttpHeaders();
         header.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename="+filename);
@@ -75,7 +82,7 @@ public class IOController {
 			
 			HttpEntity<MultiValueMap<String, Object>> requestEntity = new HttpEntity<>(body, headers);
 			String baseUrl=obtainHostnameAndPort("resume-tailor-service");
-			String serverUrl = "http://"+baseUrl+"/resume/tailor";
+			String serverUrl = serviceProtocol + "://"+baseUrl+"/resume/upload";
 		
 			RestTemplate restTemplate = new RestTemplate();
 			KeywordMatchResults response = restTemplate.postForObject(serverUrl, requestEntity, KeywordMatchResults.class);
