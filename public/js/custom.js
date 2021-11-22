@@ -68,25 +68,14 @@ $(".navbar-nav li a[href^='#']").on('click', function(e) {
 $(document).ready(function(){
     $(".navigation-menu").scrollspy();
 		
-		var quotes = [ "Leadership is a potent combination of strategy and character. But if you must be without one, be without the strategy. ~ Norman Schwarzkopf",
-									 "You miss 100 percent of the shots you don’t take ~ Wayne Gretzky",
-									 "You are not your resume, you are your work. ~ Seth Godin",
-									 "Far and away the best prize that life offers is the chance to work hard at work worth doing. ~ Theodore Roosevelt",
-									 "Even if you are on the right track, You’ll get run over if you just sit there. ~ Will Rogers",
-									 "You must either modify your dreams or magnify your skills. ~ Jim Rohn",
-									 "Every accomplishment starts with a decision to try. ~ Unknown",
-									 "A calm sea does not make a skilled sailor. ~ Unknown",
-									 "It is not the strongest of the species that survive, nor the most intelligent, but the one most responsive to change. ~ Charles Darwin",
-									 "Do or do not. There is no try. ~ Yoda",
-									 "The only place success comes before work is in the dictionary. ~ Vidal Sassoon",
-									 "There are only two ways to live your life. One is as though nothing is a miracle. The other is as though everything is a miracle. ~ Albert Einstein",
-									 "I feel that luck is preparation meeting opportunity. ~ Oprah Winfrey",
-									 "Option A is not available. So let’s kick the sh** out of option B. ~ Sheryl Sandberg",
-									 "If we can learn to deal with our discomfort and just relax into it we'll have a better life. ~ Mellody Hobson",
-									 "Aerodynamically the bumblebee shouldn’t be able to fly, but the bumblebee doesn’t know that so it goes on flying anyway. ~ Mary Kay Ash",
-									 "We need to accept that we won’t always make the right decisions, that we’ll screw up royally sometimes -- understanding that failure is not the opposite of success, it’s part of success. ~ Ariana Huffington",
-									 "Never doubt that a small group of thoughtful committed citizens can change the world. Indeed, it is the only thing that ever has. ~ Margaret Mead"
-									];
+		var quotes = [  "You miss 100 percent of the shots you don’t take ~ Wayne Gretzky",
+						"Far and away the best prize that life offers is the chance to work hard at work worth doing. ~ Theodore Roosevelt",
+						"Even if you are on the right track, You’ll get run over if you just sit there. ~ Will Rogers",
+						"You must either modify your dreams or magnify your skills. ~ Jim Rohn",
+						"Every accomplishment starts with a decision to try. ~ Unknown",
+						"The only place success comes before work is in the dictionary. ~ Vidal Sassoon",
+						"I feel that luck is preparation meeting opportunity. ~ Oprah Winfrey",
+					];
 									
 			var index = Math.floor((quotes.length + 1) * Math.random());						
 			$('#inspireQuote').text(quotes[index]);
