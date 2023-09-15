@@ -12,7 +12,7 @@ cd \dev\resume-tailor-webapp
 
 gradle clean build
 
-docker build -t resumetailor/resume-tailor-webapp:1.0 .
+docker build -t resumetailor/resume-tailor-webapp:1.1 .
 
 cd \dev\resume-tailor-service
 

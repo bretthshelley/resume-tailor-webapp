@@ -6,7 +6,7 @@ Quick Start Commands: Build React App, Spring Web, Docker Container, and Launch
 	xcopy .\build C:\dev\resume-tailor-webapp\src\main\resources\static /E /H /C /I /Y
 	cd \dev\resume-tailor-webapp
 	gradle clean build
-	docker build -t resumetailor/resume-tailor-webapp:1.0 .
+	docker build -t resumetailor/resume-tailor-webapp:1.1 .
 	cd \dev\resume-tailor-service
 	docker compose up
 	
@@ -22,15 +22,15 @@ java -DSPRING_PROFILES_ACTIVE=development -DSPRING_CLOUD_CONFIG_URI=http://local
 
 build docker image
 
-	docker build -t resumetailor/resume-tailor-webapp:1.0 .
+	docker build -t resumetailor/resume-tailor-webapp:1.1 .
 	
 run docker image - 8000 is debug port
 
-	docker run -d -p 80:80 -p 8000:8000 resumetailor/resume-tailor-webapp:1.0
+	docker run -d -p 80:80 -p 8000:8000 resumetailor/resume-tailor-webapp:1.1
 	
 run docker image with access to docker host (localhost)
 
-	docker run -d -p 80:80 -p 8000:8000 --add-host=host.docker.internal:host-gateway resumetailor/resume-tailor-webapp:1.0
+	docker run -d -p 80:80 -p 8000:8000 --add-host=host.docker.internal:host-gateway resumetailor/resume-tailor-webapp:1.1
 
 From within running image, curl a running config svc on the docker host:  (running in docker or otherwise)
 
