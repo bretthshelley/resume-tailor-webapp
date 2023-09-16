@@ -1,3 +1,10 @@
+# WebApp Components
+
+The red arrows indicate how this project's build artifacts fit into the Resume-Tailor application architecture
+
+<img src="vadosity-webapp.drawio.png"></img>
+
+
 Quick Start Commands: Build React App, Spring Web, Docker Container, and Launch
 
 	cd \dev\myapp
